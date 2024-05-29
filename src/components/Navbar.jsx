@@ -10,7 +10,7 @@ const Navbar = () => {
 
   return (
 
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-neutral-content">
 
       <div className="navbar-start">
         <div className="dropdown">
@@ -34,7 +34,7 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li className="bg-sky-500 hover:bg-sky-700 	box-sizing: border-box">
+            <li className="btn btn-outline btn-success">
               <Link to={"/"}>Home</Link>
             </li>
             <li>
@@ -42,21 +42,21 @@ const Navbar = () => {
             </li>
             {!user && (
               <>
-                <li>
+                <li className="btn btn-neutral mx-2">
                   <Link to={"/login"}>Login</Link>
                 </li>
-                <li>
+                <li className="btn btn-neutral mx-2">
                   <Link to={"/register"}>Register</Link>
                 </li>
               </>
             )}
             {user && (
-              <li>
+              <li className="btn btn-neutral mx-2">
                 <Link to={"/dashboard"}>Dashboard</Link>
               </li>
             )}
             {user && (
-              <li>
+              <li className="btn btn-info">
                 <button
                   onClick={handleLogout}
                   className="btn bg-red-500 text-white"
@@ -71,24 +71,24 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li>
+          <li className="btn btn-neutral">
             <Link to={"/"}>Home</Link>
           </li>
-          <li>
+          <li className="btn btn-neutral mx-2">
             <Link to={"/about"}>About</Link>
           </li>
           {!user && (
             <>
-              <li>
+              <li className="btn btn-neutral">
                 <Link to={"/login"}>Login</Link>
-              </li>
-              <li>
+              </li >
+              <li className="btn btn-neutral mx-2">
                 <Link to={"/register"}>Register</Link>
               </li>
             </>
           )}
           {user && (
-            <li>
+            <li className="btn btn-neutral">
               <Link to={"/dashboard"}>Dashboard</Link>
             </li>
           )}
@@ -98,7 +98,7 @@ const Navbar = () => {
         {user && (
           <button
             onClick={handleLogout}
-            className="btn bg-red-500 text-white hidden lg:block"
+            className="btn bg-info text-white hidden lg:block"
           >
             Logout
           </button>
