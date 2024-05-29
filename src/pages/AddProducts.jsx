@@ -1,7 +1,16 @@
-const AddProducts = () => {
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+const AddProducts = () => {
+  const notify = () => toast("product added successfully!");
   const handleSubmit = async (e) => {
-    alert('are you sure to add new data?')
+    if (confirm('Are you sure you want to add this product?')) {
+      // Save it!
+
+    } else {
+      // Do nothing!
+      return
+    }
     e.preventDefault();
 
     const form = e.target;
@@ -27,6 +36,7 @@ const AddProducts = () => {
 
         form.reset();
       });
+    notify();
   };
 
   return (
@@ -91,6 +101,7 @@ const AddProducts = () => {
             />
           </div>
         </form>
+        <ToastContainer />
       </div>
     </div>
   );

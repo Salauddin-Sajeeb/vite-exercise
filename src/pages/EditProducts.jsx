@@ -1,7 +1,11 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const EditProducts = () => {
+
+  const notify = () => toast("edited successfully!");
   const shoe = useLoaderData();
 
   const [title, setTitle] = useState(shoe.title);
@@ -12,6 +16,13 @@ const EditProducts = () => {
   const [image_url, setImageURL] = useState(shoe.image_url);
 
   const handleSubmit = async (e) => {
+    if (confirm('Are you sure you want to edit this product?')) {
+      // Save it!
+
+    } else {
+      // Do nothing!
+      return
+    }
     e.preventDefault();
 
     const form = e.target;
@@ -33,6 +44,7 @@ const EditProducts = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+    notify();
   };
 
   return (
@@ -110,6 +122,7 @@ const EditProducts = () => {
             />
           </div>
         </form>
+        <ToastContainer />
       </div>
     </div>
 

@@ -1,11 +1,19 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // eslint-disable-next-line react/prop-types
 const SingleProductCardDashboard = ({ shoe, onDelete }) => {
   const { id, title, brand, price, description, image_url } = shoe;
-
+  const notify = () => toast("Data deleted  successfully!");
   const handleDelete = async () => {
+    if (confirm('Are you sure you want to delete this product?')) {
+      // Save it!
+
+    } else {
+      // Do nothing!
+      return
+    }
     await fetch(`http://localhost:3000/shoes/${id}`, {
       method: "DELETE",
     })
@@ -14,6 +22,7 @@ const SingleProductCardDashboard = ({ shoe, onDelete }) => {
         console.log(data);
         onDelete(id);
       });
+    notify()
   };
 
   return (
@@ -38,6 +47,7 @@ const SingleProductCardDashboard = ({ shoe, onDelete }) => {
           </button>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

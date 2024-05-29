@@ -2,8 +2,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleLogin from "../components/Login-Registration/GoogleLogin";
 import useAuth from "../hooks/useAuth";
 import { useEffect } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
+  const notify = () => toast("Log in  successful!");
   const { signIn, user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -20,12 +23,14 @@ const Login = () => {
     console.log(email, password);
 
     await signIn(email, password);
+
   };
 
   useEffect(() => {
     if (user) {
       navigate(from, { replace: true });
     }
+    notify()
   }, [user, from, navigate]);
 
   return (
@@ -84,10 +89,12 @@ const Login = () => {
                 </Link>
               </p>
             </div>
+            <ToastContainer />
           </div>
         </div>
       </div>
     </form>
+
   );
 };
 

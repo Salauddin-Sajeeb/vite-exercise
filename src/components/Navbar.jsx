@@ -4,12 +4,14 @@ import useAuth from "../hooks/useAuth";
 const Navbar = () => {
   const { logout, user } = useAuth();
 
-  const handleLogout = async()=>{
+  const handleLogout = async () => {
     await logout()
   }
 
   return (
+
     <div className="navbar bg-base-100">
+
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -32,7 +34,7 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
+            <li className="bg-sky-500 hover:bg-sky-700 	box-sizing: border-box">
               <Link to={"/"}>Home</Link>
             </li>
             <li>

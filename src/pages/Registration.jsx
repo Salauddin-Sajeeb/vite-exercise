@@ -2,8 +2,11 @@ import { useState } from "react";
 import GoogleLogin from "../components/Login-Registration/GoogleLogin";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Registration = () => {
+  const notify = () => toast("User creation  successful!");
   const [passMatch, setPassMatch] = useState(true);
   const { createUser, user } = useAuth();
   const navigate = useNavigate();
@@ -30,6 +33,7 @@ const Registration = () => {
       if (user) {
         navigate(from, { replace: true });
       }
+      notify()
     }
   };
 
@@ -105,6 +109,7 @@ const Registration = () => {
                 </Link>
               </p>
             </div>
+            <ToastContainer />
           </div>
         </div>
       </div>

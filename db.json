@@ -41,28 +41,20 @@
       "image_url": "https://img.freepik.com/free-psd/running-shoes-sneakers-transparent-background_84443-1652.jpg?t=st=1716455007~exp=1716458607~hmac=af9444d4ad6e512ec5536161b170df2e38eb9e88746863bf39c538aff9e2d986&w=1480"
     },
     {
-      "id": "",
-      "title": "",
-      "brand": "",
-      "price": "",
-      "description": "",
-      "image_url": ""
-    },
-    {
-      "id": "",
-      "title": "",
-      "brand": "",
-      "price": "",
-      "description": "",
-      "image_url": ""
-    },
-    {
       "id": "7",
-      "title": "abc",
+      "title": "good",
       "brand": "new",
-      "price": "100",
-      "description": "good",
-      "image_url": "abd"
+      "price": "1223",
+      "description": "best quality",
+      "image_url": "asd"
+    },
+    {
+      "id": "8",
+      "title": "new",
+      "brand": "good",
+      "price": "150",
+      "description": "nnans",
+      "image_url": "asd"
     }
   ]
 }
