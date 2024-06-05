@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
+
 const Navbar = () => {
   const { logout, user } = useAuth();
 
@@ -10,13 +11,13 @@ const Navbar = () => {
 
   return (
 
-    <div className="navbar bg-neutral-content">
+    <div className="navbar  bg-primary-content">
 
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
-              xmlns="http://www.w3.org/2000/svg"
+              xmlns="https://img.freepik.com/premium-photo/cctv-camera-logo_1003030-9368.jpg?w=740"
               className="h-5 w-5"
               fill="none"
               viewBox="0 0 24 24"
@@ -38,12 +39,17 @@ const Navbar = () => {
               <Link to={"/"}>Home</Link>
             </li>
             <li>
+              <Link to={"/all-products"}>Our products</Link>
+            </li>
+            <li>
               <Link to={"/about"}>About</Link>
             </li>
+
+
             {!user && (
               <>
                 <li className="btn btn-neutral mx-2">
-                  <Link to={"/login"}>Login</Link>
+                  <Link to={"/login"}>hi</Link>
                 </li>
                 <li className="btn btn-neutral mx-2">
                   <Link to={"/register"}>Register</Link>
@@ -67,7 +73,7 @@ const Navbar = () => {
             )}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl">eshop</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -75,7 +81,10 @@ const Navbar = () => {
             <Link to={"/"}>Home</Link>
           </li>
           <li className="btn btn-neutral mx-2">
-            <Link to={"/about"}>About</Link>
+            <Link to={"/about"}>about</Link>
+          </li>
+          <li className="btn btn-neutral mx-2">
+            <Link to={"/all-products"}>Our Products</Link>
           </li>
           {!user && (
             <>
@@ -102,8 +111,10 @@ const Navbar = () => {
           >
             Logout
           </button>
+
         )}
-        <div className="avatar">
+
+        <div className="avatar online">
           <div className="w-12 rounded-full border-2 border-black">
             <img src={user?.photoURL || "/public/placeholder.jpg"} />
           </div>

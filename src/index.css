@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 .bannerBg{
-    background-image: url("/public/banner.jpeg");
+    background-image: url("/public/banner.jpg");
     object-fit: cover;
+    max-height: 700px;
 }

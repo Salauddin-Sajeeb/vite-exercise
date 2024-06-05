@@ -14,19 +14,20 @@ const AddProducts = () => {
     e.preventDefault();
 
     const form = e.target;
-    const id = form.id.value;
+
     const title = form.title.value;
     const brand = form.brand.value;
     const price = form.price.value;
     const description = form.description.value;
     const image_url = form.image_url.value;
 
-    const data = { id, title, brand, price, description, image_url };
-
-    await fetch("http://localhost:3000/shoes", {
+    const data = { title, brand, price, description, image_url };
+    const token = localStorage.getItem('token');
+    await fetch("http://localhost:4000/cameras", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
+        authorization: `bearer${token}`,
       },
       body: JSON.stringify(data),
     })
@@ -85,14 +86,7 @@ const AddProducts = () => {
               placeholder="Image URL"
             />
           </div>
-          <div className="mt-2">
-            <input
-              className="bg-gray-100 p-4 w-full border border-black rounded-lg"
-              type="text"
-              name="id"
-              placeholder="ID"
-            />
-          </div>
+
           <div className="mt-2 flex justify-center items-center">
             <input
               className="btn mt-4 w-full bg-red-500 text-white p-4"
@@ -100,9 +94,12 @@ const AddProducts = () => {
               value="Add product"
             />
           </div>
+
         </form>
         <ToastContainer />
       </div>
+
+
     </div>
   );
 };

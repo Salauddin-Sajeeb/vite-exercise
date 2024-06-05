@@ -5,24 +5,24 @@ const AllProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/shoes/")
+    fetch("http://localhost:4000/cameras")
       .then((res) => res.json())
       .then((data) => setProducts(data));
 
   }, []);
 
   const handleDeleteProduct = (id) => {
-    setProducts(products.filter((product) => product.id !== id));
+    setProducts(products.filter((product) => product._id !== id));
   };
 
   return (
     <div>
-      <h1 className="text-5xl font-bold text-center">All Products</h1>
-      <div className="my-16 flex flex-wrap gap-4">
-        {products.map((shoe) => (
+      <h1 className="text-5xl font-bold text-center my-5">Our Products</h1>
+      <div className="my-16 flex flex-wrap gap-4 shadow-2xl bg-base-100">
+        {products.map((data) => (
           <SingleProductCardDashboard
-            key={shoe.id}
-            shoe={shoe}
+            key={data.id}
+            data={data}
             onDelete={handleDeleteProduct}
           />
         ))}

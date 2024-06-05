@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
         path: "/products/:id",
         element: <ProductDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/shoes/${params.id}`),
+          fetch(`http://localhost:4000/cameras/${params.id}`),
       },
       {
         path: "/about",
@@ -41,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Registration />,
+      },
+      {
+        path: "/all-products",
+        element: <AllProducts />,
       },
     ],
   },
@@ -81,7 +85,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/shoes/${params.id}`),
+          fetch(`http://localhost:4000/cameras/${params.id}`),
       },
     ],
   },
